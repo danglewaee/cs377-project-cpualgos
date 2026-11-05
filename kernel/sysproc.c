@@ -33,7 +33,18 @@ sys_wait(void)
 {
   uint64 p;
   argaddr(0, &p);
-  return kwait(p);
+  return kwait(p, 0);
+}
+uint64
+sys_waitmetrics(void)
+{
+  uint64 statusaddr;
+  uint64 metricsaddr;
+
+  argaddr(0, &statusaddr);
+  argaddr(1, &metricsaddr);
+
+  return kwait(statusaddr, metricsaddr);
 }
 
 uint64

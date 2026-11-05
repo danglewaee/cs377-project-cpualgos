@@ -1,6 +1,8 @@
 #define SBRK_ERROR ((char *)-1)
 
 struct stat;
+struct pmetrics;
+int waitmetrics(int *, struct pmetrics *);
 
 // system calls
 int fork(void);
