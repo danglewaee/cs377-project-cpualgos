@@ -5,7 +5,6 @@
 #include "spinlock.h"
 #include "proc.h"
 #include "defs.h"
-#include "riscv.h"
 #include "pmetrics.h"
 
 struct cpu cpus[NCPU];
@@ -236,7 +235,7 @@ userinit(void)
   p->cwd = namei("/");
 
   p->state = RUNNABLE;
-  p->runnable = r_time();
+  p->runnable_time = r_time();
 
   release(&p->lock);
 }
